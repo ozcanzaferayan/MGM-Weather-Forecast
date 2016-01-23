@@ -1,4 +1,4 @@
-﻿using MgmUtils.cs;
+﻿using MgmUtils.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,26 +9,21 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Threading.Tasks;
+using MgmUtils.PlacesModels;
+using MgmUtils;
 
 namespace MgmService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class WeatherService : IWeatherService
     {
-        public async Task<string> GetCurrentWeatherAsync()
+        public async Task<Forecast> GetWeatherForecastAsync(string placeNameHref)
         {
-            WebRequest req = WebRequest.Create("http://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx?m=ISTANBUL");
-            WebResponse response = await req.GetResponseAsync();
-            var responseString = "";
-            using (var stream = response.GetResponseStream())
-            {
-                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
-                {
-                    responseString = reader.ReadToEnd();
-                }
-            }
-            return PageParser.Parse(ref responseString);
+            return await WeatherRequest.GetForecast(placeNameHref);
+        }
+
+        public async Task<Places> GetPlacesAsync(string placeNameHref)
+        {
+            return await WeatherRequest.GetPlaces(placeNameHref);
         }
     }
 }

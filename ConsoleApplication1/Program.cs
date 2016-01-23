@@ -1,5 +1,7 @@
 ﻿using ConsoleApplication1.WeatherService;
-using MgmUtils.cs;
+using MgmUtils.Models;
+using MgmUtils.PlacesModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,18 +13,27 @@ namespace ConsoleApplication1
 {
     class Program
     {
+        public static WeatherServiceClient client = new WeatherServiceClient();
+
         static void Main(string[] args)
         {
-            string weatherJson = GetWeather().Result;
+            Forecast forecast = GetWeather().Result;
+            Places places = GetPlaces().Result;
+            Console.WriteLine(JsonConvert.SerializeObject(forecast));
+            Console.WriteLine(JsonConvert.SerializeObject(places));
             Console.Read();
-
         }
 
-        public async static Task<String> GetWeather()
+        async static Task<Forecast> GetWeather()
         {
-            WeatherServiceClient client = new WeatherServiceClient();
-            string weatherJson = await client.GetCurrentWeatherAsync();
-            return weatherJson;
+            Forecast forecast = await client.GetWeatherForecastAsync("ISTANBUL");
+            return forecast;
+        }
+
+        async static Task<Places> GetPlaces()
+        {
+            Places places = await client.GetPlacesAsync("ISTANBUL");
+            return places;
         }
     }
 }

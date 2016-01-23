@@ -15,11 +15,17 @@ namespace ConsoleApplication1.WeatherService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WeatherService.IWeatherService")]
     public interface IWeatherService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherService/GetCurrentWeather", ReplyAction="http://tempuri.org/IWeatherService/GetCurrentWeatherResponse")]
-        string GetCurrentWeather();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherService/GetWeatherForecast", ReplyAction="http://tempuri.org/IWeatherService/GetWeatherForecastResponse")]
+        MgmUtils.Models.Forecast GetWeatherForecast(string placeName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherService/GetCurrentWeather", ReplyAction="http://tempuri.org/IWeatherService/GetCurrentWeatherResponse")]
-        System.Threading.Tasks.Task<string> GetCurrentWeatherAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherService/GetWeatherForecast", ReplyAction="http://tempuri.org/IWeatherService/GetWeatherForecastResponse")]
+        System.Threading.Tasks.Task<MgmUtils.Models.Forecast> GetWeatherForecastAsync(string placeName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherService/GetPlaces", ReplyAction="http://tempuri.org/IWeatherService/GetPlacesResponse")]
+        MgmUtils.PlacesModels.Places GetPlaces(string placeName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherService/GetPlaces", ReplyAction="http://tempuri.org/IWeatherService/GetPlacesResponse")]
+        System.Threading.Tasks.Task<MgmUtils.PlacesModels.Places> GetPlacesAsync(string placeName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +55,20 @@ namespace ConsoleApplication1.WeatherService {
                 base(binding, remoteAddress) {
         }
         
-        public string GetCurrentWeather() {
-            return base.Channel.GetCurrentWeather();
+        public MgmUtils.Models.Forecast GetWeatherForecast(string placeName) {
+            return base.Channel.GetWeatherForecast(placeName);
         }
         
-        public System.Threading.Tasks.Task<string> GetCurrentWeatherAsync() {
-            return base.Channel.GetCurrentWeatherAsync();
+        public System.Threading.Tasks.Task<MgmUtils.Models.Forecast> GetWeatherForecastAsync(string placeName) {
+            return base.Channel.GetWeatherForecastAsync(placeName);
+        }
+        
+        public MgmUtils.PlacesModels.Places GetPlaces(string placeName) {
+            return base.Channel.GetPlaces(placeName);
+        }
+        
+        public System.Threading.Tasks.Task<MgmUtils.PlacesModels.Places> GetPlacesAsync(string placeName) {
+            return base.Channel.GetPlacesAsync(placeName);
         }
     }
 }

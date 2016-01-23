@@ -34,10 +34,6 @@
       <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,18 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Forecast.cs" />
-    <Compile Include="Models\ForecastForDay.cs" />
-    <Compile Include="Models\FiveDayForecast.cs" />
-    <Compile Include="Models\ForecastDaily.cs" />
-    <Compile Include="Models\ForecastDailyHistory.cs" />
-    <Compile Include="Models\Humidity.cs" />
-    <Compile Include="Models\ForecastLastStatus.cs" />
-    <Compile Include="Models\LocationInfo.cs" />
-    <Compile Include="Models\Temperature.cs" />
-    <Compile Include="Models\Wind.cs" />
-    <Compile Include="PageParser.cs" />
+    <Compile Include="PlacesModels\City.cs" />
+    <Compile Include="PlacesModels\District.cs" />
+    <Compile Include="PlacesModels\Places.cs" />
+    <Compile Include="PlacesParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeatherModels\Forecast.cs" />
+    <Compile Include="WeatherModels\ForecastCurrent.cs" />
+    <Compile Include="WeatherModels\ForecastDaily.cs" />
+    <Compile Include="WeatherModels\ForecastDailyHistory.cs" />
+    <Compile Include="WeatherModels\ForecastForDay.cs" />
+    <Compile Include="WeatherModels\ForecastForFiveDays.cs" />
+    <Compile Include="WeatherModels\Humidity.cs" />
+    <Compile Include="WeatherModels\LocationInfo.cs" />
+    <Compile Include="WeatherModels\Temperature.cs" />
+    <Compile Include="WeatherModels\Wind.cs" />
+    <Compile Include="WeatherParser.cs" />
     <Compile Include="WeatherRequest.cs" />
   </ItemGroup>
   <ItemGroup>

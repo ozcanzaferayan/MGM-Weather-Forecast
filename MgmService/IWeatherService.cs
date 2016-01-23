@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MgmUtils.Models;
+using MgmUtils.PlacesModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -13,8 +15,10 @@ namespace MgmService
     [ServiceContract]
     public interface IWeatherService
     {
-        // TODO: Add your service operations here
         [OperationContract]
-        Task<string> GetCurrentWeatherAsync();
+        Task<Forecast> GetWeatherForecastAsync(string placeName = "");
+
+        [OperationContract]
+        Task<Places> GetPlacesAsync(string placeName = "");
     }
 }

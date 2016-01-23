@@ -1,29 +1,23 @@
 ﻿using HtmlAgilityPack;
-using MgmUtils.cs.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MgmUtils.Models;
 
-namespace MgmUtils.cs
+namespace MgmUtils
 {
-    public class PageParser
+    public class WeatherParser
     {
-        public static string Parse(ref string html)
+        public static Forecast Parse(ref string html)
         {
             HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(html);
+            doc.LoadHtml(html);//
             Forecast forecast = new Forecast();
 
             HtmlNodeCollection locationInfoNodes = doc.DocumentNode.SelectNodes("//*[contains(@id,'divMerkez')]//p");
             HtmlNode lastStatusTable = doc.DocumentNode.SelectSingleNode("//*[contains(@class,'tbl_sond')]");
             HtmlNodeCollection forecastCells = doc.DocumentNode.SelectNodes("//*[contains(@class,'tbl_thmn')]//tbody//*[local-name()='th' or local-name()='td']");
             forecast.LocationInfo = GetLocationInfo(locationInfoNodes);
-            forecast.ForecastLastStatus = GetForecastLastStatus(lastStatusTable);
+            forecast.CurrentForecast = GetForecastLastStatus(lastStatusTable);
             forecast.FiveDayForecast = GetFiveDayForecast(forecastCells);
-            return JsonConvert.SerializeObject(forecast);
+            return forecast;
         }
 
         private static LocationInfo GetLocationInfo(HtmlNodeCollection locationInfoNodes)
@@ -37,9 +31,9 @@ namespace MgmUtils.cs
             return locationInfo;
         }
 
-        private static ForecastLastStatus GetForecastLastStatus(HtmlNode lastStatusTable)
+        private static ForecastCurrent GetForecastLastStatus(HtmlNode lastStatusTable)
         {
-            ForecastLastStatus lastStatus = new ForecastLastStatus();
+            ForecastCurrent lastStatus = new ForecastCurrent();
             HtmlNode lastStatusTableHeader = lastStatusTable.ChildNodes[1];
             HtmlNode lastStatusTableBody = lastStatusTable.ChildNodes[3];
 
@@ -64,9 +58,9 @@ namespace MgmUtils.cs
             return lastStatus;
         }
 
-        private static FiveDayForecast GetFiveDayForecast(HtmlNodeCollection forecastCells)
+        private static ForecastForFiveDays GetFiveDayForecast(HtmlNodeCollection forecastCells)
         {
-            FiveDayForecast fiveDayForecast = new FiveDayForecast();
+            ForecastForFiveDays fiveDayForecast = new ForecastForFiveDays();
             for (int i = 0; i < forecastCells.Count; i += (forecastCells.Count / 5))
             {
                 ForecastForDay tempForecast = new ForecastForDay();
