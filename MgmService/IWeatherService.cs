@@ -15,9 +15,11 @@ namespace MgmService
     [ServiceContract]
     public interface IWeatherService
     {
+        [WebGet]
         [OperationContract]
         Task<Forecast> GetWeatherForecastAsync(string placeName = "");
 
+        [WebGet]
         [OperationContract]
         Task<Places> GetPlacesAsync(string placeName = "");
     }

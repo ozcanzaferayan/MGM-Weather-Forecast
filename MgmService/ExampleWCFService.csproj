@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MgmService</RootNamespace>
-    <AssemblyName>MgmService</AssemblyName>
+    <RootNamespace>ExampleWCFService</RootNamespace>
+    <AssemblyName>ExampleWCFService</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <UseIISExpress>true</UseIISExpress>
@@ -87,9 +87,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MgmUtils.cs\MgmUtils.cs.csproj">
+    <ProjectReference Include="..\MgmUtils.cs\MgmUtils.csproj">
       <Project>{48e9da65-7b2b-4497-88cb-e8a66ba25214}</Project>
-      <Name>MgmUtils.cs</Name>
+      <Name>MgmUtils</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -7,8 +7,8 @@
     <ProjectGuid>{48E9DA65-7B2B-4497-88CB-E8A66BA25214}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MgmUtils.cs</RootNamespace>
-    <AssemblyName>MgmUtils.cs</AssemblyName>
+    <RootNamespace>MgmUtils</RootNamespace>
+    <AssemblyName>MgmUtils</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

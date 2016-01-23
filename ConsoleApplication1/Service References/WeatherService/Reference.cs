@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ConsoleApplication1.WeatherService {
+namespace ExampleConsoleApp.WeatherService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -29,12 +29,12 @@ namespace ConsoleApplication1.WeatherService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IWeatherServiceChannel : ConsoleApplication1.WeatherService.IWeatherService, System.ServiceModel.IClientChannel {
+    public interface IWeatherServiceChannel : ExampleConsoleApp.WeatherService.IWeatherService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WeatherServiceClient : System.ServiceModel.ClientBase<ConsoleApplication1.WeatherService.IWeatherService>, ConsoleApplication1.WeatherService.IWeatherService {
+    public partial class WeatherServiceClient : System.ServiceModel.ClientBase<ExampleConsoleApp.WeatherService.IWeatherService>, ExampleConsoleApp.WeatherService.IWeatherService {
         
         public WeatherServiceClient() {
         }

@@ -1,9 +1,10 @@
-﻿using ConsoleApplication1.WeatherService;
+﻿using ExampleConsoleApp.WeatherService;
 using MgmUtils.Models;
 using MgmUtils.PlacesModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,12 @@ namespace ConsoleApplication1
         {
             Forecast forecast = GetWeather().Result;
             Places places = GetPlaces().Result;
-            Console.WriteLine(JsonConvert.SerializeObject(forecast));
-            Console.WriteLine(JsonConvert.SerializeObject(places));
-            Console.Read();
+            string forecastString = JsonConvert.SerializeObject(forecast);
+            string placesString = JsonConvert.SerializeObject(places);
+            File.WriteAllText("Forecast.txt", forecastString);
+            File.WriteAllText("Places.txt", placesString);
+            Process.Start("Forecast.txt");
+            Process.Start("Places.txt");
         }
 
         async static Task<Forecast> GetWeather()
