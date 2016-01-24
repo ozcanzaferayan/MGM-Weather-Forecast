@@ -1,4 +1,4 @@
-# MGM-Weather-Forecast
+# MGM Weather Forecast API
 Gets weather forecast from http://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx
 ### Usage in simple console application
 First create console project:
