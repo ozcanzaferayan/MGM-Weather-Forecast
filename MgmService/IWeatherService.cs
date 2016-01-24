@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 
 namespace MgmService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
     public interface IWeatherService
     {
-        [WebGet]
         [OperationContract]
+        [WebGet(UriTemplate = "/forecast/{placeName}")]
         Task<Forecast> GetWeatherForecastAsync(string placeName = "");
 
-        [WebGet]
+        
         [OperationContract]
+        [WebGet(UriTemplate = "/placesList/{placeName}")]
         Task<Places> GetPlacesAsync(string placeName = "");
     }
 }
