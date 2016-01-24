@@ -1,19 +1,19 @@
 # MGM Weather Forecast API
-Gets weather forecast from http://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx
+Gets weather forecast with scraping [mgm.gov.tr](http://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx) website.
 
 Nuget package: https://www.nuget.org/packages/MgmWeatherForecast/
 
 WCF Service URL: http://forecast.zaferayan.com/WeatherService.svc
 
 ## API Functions
-### Forecast GetForecastAsync(string uppercasePlaceName)
+### Forecast GetForecastAsync(AbstractPlace place)
 Gets the uppercasePlaceName's weather forecast.
-* Sample usage:<code>await GetForecastAsync("ISTANBUL");</code>
+* Sample usage:<code>await GetForecastAsync(new City("ISTANBUL"));</code>
 http://forecast.zaferayan.com/WeatherService.svc/XML/forecast/ISTANBUL
 
-### Places GetPlacesAsync(string uppercaseCityName)
+### Places GetPlacesAsync(City city)
 Gets all cities and Ankara's district names.
-* Sample usage:<code>await GetPlacesAsync("ANKARA");</code>
+* Sample usage:<code>await GetPlacesAsync(new City("ANKARA"));</code>
 http://forecast.zaferayan.com/WeatherService.svc/JSON/places/ANKARA
 
 ## Sample Projects
