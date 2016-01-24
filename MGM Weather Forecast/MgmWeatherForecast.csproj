@@ -7,8 +7,8 @@
     <ProjectGuid>{48E9DA65-7B2B-4497-88CB-E8A66BA25214}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MgmUtils</RootNamespace>
-    <AssemblyName>MgmUtils</AssemblyName>
+    <RootNamespace>MgmWeatherForecast</RootNamespace>
+    <AssemblyName>MgmWeatherForecast</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,22 +44,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PlacesModels\City.cs" />
-    <Compile Include="PlacesModels\District.cs" />
-    <Compile Include="PlacesModels\Places.cs" />
-    <Compile Include="PlacesParser.cs" />
+    <Compile Include="Models\PlacesModels\AbstractPlace.cs" />
+    <Compile Include="Models\PlacesModels\City.cs" />
+    <Compile Include="Models\PlacesModels\District.cs" />
+    <Compile Include="Models\PlacesModels\Places.cs" />
+    <Compile Include="Parsers\PlacesParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeatherModels\Forecast.cs" />
-    <Compile Include="WeatherModels\ForecastCurrent.cs" />
-    <Compile Include="WeatherModels\ForecastDaily.cs" />
-    <Compile Include="WeatherModels\ForecastDailyHistory.cs" />
-    <Compile Include="WeatherModels\ForecastForDay.cs" />
-    <Compile Include="WeatherModels\ForecastForFiveDays.cs" />
-    <Compile Include="WeatherModels\Humidity.cs" />
-    <Compile Include="WeatherModels\LocationInfo.cs" />
-    <Compile Include="WeatherModels\Temperature.cs" />
-    <Compile Include="WeatherModels\Wind.cs" />
-    <Compile Include="WeatherParser.cs" />
+    <Compile Include="Models\WeatherModels\Forecast.cs" />
+    <Compile Include="Models\WeatherModels\ForecastCurrent.cs" />
+    <Compile Include="Models\WeatherModels\ForecastDaily.cs" />
+    <Compile Include="Models\WeatherModels\ForecastDailyHistory.cs" />
+    <Compile Include="Models\WeatherModels\ForecastForDay.cs" />
+    <Compile Include="Models\WeatherModels\ForecastForFiveDays.cs" />
+    <Compile Include="Models\WeatherModels\Humidity.cs" />
+    <Compile Include="Models\WeatherModels\LocationInfo.cs" />
+    <Compile Include="Models\WeatherModels\Temperature.cs" />
+    <Compile Include="Models\WeatherModels\Wind.cs" />
+    <Compile Include="Utils\HtmlParseUtil.cs" />
+    <Compile Include="Parsers\WeatherParser.cs" />
     <Compile Include="WeatherRequest.cs" />
   </ItemGroup>
   <ItemGroup>

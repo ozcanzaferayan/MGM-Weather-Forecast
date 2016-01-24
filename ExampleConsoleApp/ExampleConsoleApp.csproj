@@ -50,57 +50,21 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\WeatherService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MgmUtils.Models.Forecast.datasource" />
     <None Include="Properties\DataSources\MgmUtils.PlacesModels.Places.datasource" />
-    <None Include="Service References\WeatherService\WeatherService.wsdl" />
-    <None Include="Service References\WeatherService\WeatherService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WeatherService\WeatherService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WeatherService\WeatherService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\WeatherService\WeatherService21.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MgmUtils.cs\MgmUtils.csproj">
-      <Project>{48e9da65-7b2b-4497-88cb-e8a66ba25214}</Project>
-      <Name>MgmUtils</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WeatherService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WeatherService\WeatherService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WeatherService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WeatherService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\WeatherService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\MGM Weather Forecast\MgmWeatherForecast.csproj">
+      <Project>{48e9da65-7b2b-4497-88cb-e8a66ba25214}</Project>
+      <Name>MgmWeatherForecast</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

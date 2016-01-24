@@ -1,14 +1,22 @@
 ﻿using HtmlAgilityPack;
-using MgmUtils.Models;
-
-namespace MgmUtils
+using MgmWeatherForecast.Models;
+using MgmWeatherForecast.Utils;
+namespace MgmWeatherForecast
 {
+    /// <summary>
+    /// Using html for getting weather informations.
+    /// </summary>
     public class WeatherParser
     {
+        /// <summary>
+        /// Parses the specified HTML which belongs http://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx site.
+        /// </summary>
+        /// <param name="html">The HTML string.</param>
+        /// <returns>Forecast report within page.</returns>
         public static Forecast Parse(ref string html)
         {
             HtmlDocument doc = new HtmlDocument();
-            doc.LoadHtml(html);//
+            doc.LoadHtml(html);
             Forecast forecast = new Forecast();
 
             HtmlNodeCollection locationInfoNodes = doc.DocumentNode.SelectNodes("//*[contains(@id,'divMerkez')]//p");
@@ -20,17 +28,26 @@ namespace MgmUtils
             return forecast;
         }
 
+        /// <summary>
+        /// Gets the location information such as:
+        /// Yükseklik:  28 m. Boylam:  29° 9' D Enlem:  40° 54' K Gün Batımı:  17:10 Gün Doğumu:  07:21
+        /// </summary>
+        /// <param name="locationInfoNodes">The html location information nodes.</param>
         private static LocationInfo GetLocationInfo(HtmlNodeCollection locationInfoNodes)
         {
             LocationInfo locationInfo = new LocationInfo();
-            locationInfo.Altitude = locationInfoNodes[0].LastChild.InnerText.Substring(6);
-            locationInfo.Longitude = locationInfoNodes[1].LastChild.InnerText.Substring(6);
-            locationInfo.Latitude = locationInfoNodes[2].LastChild.InnerText.Substring(6);
-            locationInfo.Sunset = locationInfoNodes[3].LastChild.InnerText.Substring(6);
-            locationInfo.Sunrise = locationInfoNodes[4].LastChild.InnerText.Substring(6);
+            locationInfo.Altitude = locationInfoNodes[0].LastChild.InnerText.RemoveNbsp();
+            locationInfo.Longitude = locationInfoNodes[1].LastChild.InnerText.RemoveNbsp().ReplaceQuoteAndDegree();
+            locationInfo.Latitude = locationInfoNodes[2].LastChild.InnerText.RemoveNbsp().ReplaceQuoteAndDegree();
+            locationInfo.Sunset = locationInfoNodes[3].LastChild.InnerText.RemoveNbsp();
+            locationInfo.Sunrise = locationInfoNodes[4].LastChild.InnerText.RemoveNbsp();
             return locationInfo;
         }
 
+        /// <summary>
+        /// Gets the forecast last status.
+        /// </summary>
+        /// <param name="lastStatusTable">The html last status table.</param>
         private static ForecastCurrent GetForecastLastStatus(HtmlNode lastStatusTable)
         {
             ForecastCurrent lastStatus = new ForecastCurrent();
@@ -49,7 +66,7 @@ namespace MgmUtils
             lastStatus.Weather = weatherTypeNode.Attributes["title"].Value;
             lastStatus.Date = statusTimeNode.FirstChild.InnerText;
             lastStatus.Hour = statusTimeNode.LastChild.InnerText;
-            lastStatus.Temperature = tempNode.InnerText;
+            lastStatus.Temperature = tempNode.InnerText.ReplaceDegree();
             lastStatus.Humidity = humidityNode.InnerText;
             lastStatus.Wind.Direction = windNode.Attributes["title"].Value;
             lastStatus.Wind.Velocity = windNode.LastChild.InnerText;
@@ -58,6 +75,10 @@ namespace MgmUtils
             return lastStatus;
         }
 
+        /// <summary>
+        /// Gets the five day forecast.
+        /// </summary>
+        /// <param name="forecastCells">The html forecast cells.</param>
         private static ForecastForFiveDays GetFiveDayForecast(HtmlNodeCollection forecastCells)
         {
             ForecastForFiveDays fiveDayForecast = new ForecastForFiveDays();

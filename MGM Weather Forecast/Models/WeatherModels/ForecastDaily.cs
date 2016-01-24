@@ -1,4 +1,4 @@
-﻿namespace MgmUtils.Models
+﻿namespace MgmWeatherForecast.Models
 {
     public class ForecastDaily
     {

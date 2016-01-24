@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MgmUtils.cs")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("MgmWeatherForecast")]
+[assembly: AssemblyDescription("Gets latest weather forecast from MGM website")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MgmUtils.cs")]
+[assembly: AssemblyCompany("Zafer AYAN")]
+[assembly: AssemblyProduct("MgmWeatherForecast")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -1,12 +1,7 @@
-﻿using MgmUtils.Models;
-using MgmUtils.PlacesModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using MgmWeatherForecast.Models;
+using MgmWeatherForecast.PlacesModels;
 using System.ServiceModel;
 using System.ServiceModel.Web;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MgmService

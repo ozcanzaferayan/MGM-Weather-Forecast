@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MgmUtils.PlacesModels
+namespace MgmWeatherForecast.PlacesModels
 {
     public class Places
     {

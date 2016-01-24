@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleConsoleApp", "Exampl
 		{F3270A5B-B67D-45E1-8414-062BE86F4E55} = {F3270A5B-B67D-45E1-8414-062BE86F4E55}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MgmUtils", "MgmUtils.cs\MgmUtils.csproj", "{48E9DA65-7B2B-4497-88CB-E8A66BA25214}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MgmWeatherForecast", "MGM Weather Forecast\MgmWeatherForecast.csproj", "{48E9DA65-7B2B-4497-88CB-E8A66BA25214}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

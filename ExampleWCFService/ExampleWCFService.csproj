@@ -92,9 +92,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MgmUtils.cs\MgmUtils.csproj">
+    <ProjectReference Include="..\MGM Weather Forecast\MgmWeatherForecast.csproj">
       <Project>{48e9da65-7b2b-4497-88cb-e8a66ba25214}</Project>
-      <Name>MgmUtils</Name>
+      <Name>MgmWeatherForecast</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

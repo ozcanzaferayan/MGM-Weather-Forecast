@@ -1,17 +1,7 @@
-﻿using MgmUtils.Models;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using System.Threading.Tasks;
-using MgmUtils.PlacesModels;
-using MgmUtils;
-using Newtonsoft.Json;
+﻿using System.Threading.Tasks;
+using MgmWeatherForecast.PlacesModels;
+using MgmWeatherForecast;
+using MgmWeatherForecast.Models;
 
 namespace MgmService
 {
@@ -19,12 +9,12 @@ namespace MgmService
     {
         public async Task<Forecast> GetWeatherForecastAsync(string placeNameHref)
         {
-            return await WeatherRequest.GetForecast(placeNameHref);
+            return await WeatherRequest.GetForecastAsync(placeNameHref);
         }
 
         public async Task<Places> GetPlacesAsync(string placeNameHref)
         {
-            return await WeatherRequest.GetPlaces(placeNameHref);
+            return await WeatherRequest.GetPlacesAsync(placeNameHref);
         }
     }
 }
