@@ -1,5 +1,5 @@
 # MGM Weather Forecast API
-Gets weather forecast from http://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx
+Gets weather forecast with scraping [mgm.gov.tr](http://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx) website.
 
 Nuget package: https://www.nuget.org/packages/MgmWeatherForecast/
 
