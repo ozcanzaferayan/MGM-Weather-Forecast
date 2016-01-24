@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleWCFService", "MgmService\ExampleWCFService.csproj", "{F3270A5B-B67D-45E1-8414-062BE86F4E55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleWCFService", "ExampleWCFService\ExampleWCFService.csproj", "{F3270A5B-B67D-45E1-8414-062BE86F4E55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleConsoleApp", "ConsoleApplication1\ExampleConsoleApp.csproj", "{6E3FC9B7-4DDB-41F0-8A62-950D56F64B0A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleConsoleApp", "ExampleConsoleApp\ExampleConsoleApp.csproj", "{6E3FC9B7-4DDB-41F0-8A62-950D56F64B0A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F3270A5B-B67D-45E1-8414-062BE86F4E55} = {F3270A5B-B67D-45E1-8414-062BE86F4E55}
 	EndProjectSection
