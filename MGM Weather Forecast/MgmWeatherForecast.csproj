@@ -62,7 +62,7 @@
     <Compile Include="Models\WeatherModels\Wind.cs" />
     <Compile Include="Utils\HtmlParseUtil.cs" />
     <Compile Include="Parsers\WeatherParser.cs" />
-    <Compile Include="WeatherRequest.cs" />
+    <Compile Include="WeatherForecast.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

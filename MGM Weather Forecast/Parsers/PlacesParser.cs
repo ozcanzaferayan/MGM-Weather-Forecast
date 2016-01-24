@@ -6,7 +6,7 @@ namespace MgmWeatherForecast
     /// <summary>
     /// Using html for getting place informations.
     /// </summary>
-    public class PlacesParser
+    class PlacesParser
     {
         /// <summary>
         /// Parses the specified HTML which belongs http://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx site.

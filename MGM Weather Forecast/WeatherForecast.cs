@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace MgmWeatherForecast
 {
-    public class WeatherRequest
+    public class WeatherForecast
     {
         /// <summary>
         /// MGM request url.
         /// </summary>
-        public const string MGM_URL_BASE = "http://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx";
+        private const string MGM_URL_BASE = "http://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx";
 
         /// <summary>
         /// Gets the page asynchronous.
         /// </summary>
         /// <param name="uppercasePlaceName">Name of the place.</param>
-        /// <returns></returns>
+        /// <exception cref="System.Net.WebException"></exception>
         private static async Task<string> GetPageAsync(string uppercasePlaceName)
         {
             string url = MGM_URL_BASE + "?m=" + uppercasePlaceName;
@@ -41,22 +41,20 @@ namespace MgmWeatherForecast
         /// <summary>
         /// Gets the forecast asynchronous.
         /// </summary>
-        /// <param name="uppercasePlaceName">Name of the place such as ISTANBUL</param>
-        /// <returns></returns>
-        public static async Task<Forecast> GetForecastAsync(string uppercasePlaceName)
+        /// <param name="place">City or district such as ISTANBUL or ZEYTINBURNU</param>
+        public static async Task<Forecast> GetForecastAsync(AbstractPlace place)
         {
-            var responseString = await GetPageAsync(uppercasePlaceName);
+            var responseString = await GetPageAsync(place.Name);
             return WeatherParser.Parse(ref responseString);
         }
 
         /// <summary>
-        /// Gets the places asynchronous.
+        /// Gets the all cities and related districts.
         /// </summary>
-        /// <param name="uppercasePlaceName">Name of the uppercase place.</param>
-        /// <returns></returns>
-        public static async Task<Places> GetPlacesAsync(string uppercasePlaceName)
+        /// <param name="city">The city.</param>
+        public static async Task<Places> GetPlacesAsync(City city)
         {
-            var responseString = await GetPageAsync(uppercasePlaceName);
+            var responseString = await GetPageAsync(city.Name);
             return PlacesParser.Parse(ref responseString);
         }
     }

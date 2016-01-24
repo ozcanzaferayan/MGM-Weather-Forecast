@@ -7,8 +7,8 @@
     <ProjectGuid>{6E3FC9B7-4DDB-41F0-8A62-950D56F64B0A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExampleConsoleApp</RootNamespace>
-    <AssemblyName>ExampleConsoleApp</AssemblyName>
+    <RootNamespace>SampleConsoleApp</RootNamespace>
+    <AssemblyName>SampleConsoleApp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

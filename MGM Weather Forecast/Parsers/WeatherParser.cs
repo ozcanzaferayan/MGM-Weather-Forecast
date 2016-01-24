@@ -6,7 +6,7 @@ namespace MgmWeatherForecast
     /// <summary>
     /// Using html for getting weather informations.
     /// </summary>
-    public class WeatherParser
+    class WeatherParser
     {
         /// <summary>
         /// Parses the specified HTML which belongs http://www.mgm.gov.tr/tahmin/il-ve-ilceler.aspx site.

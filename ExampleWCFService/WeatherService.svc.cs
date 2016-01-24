@@ -3,18 +3,18 @@ using MgmWeatherForecast.PlacesModels;
 using MgmWeatherForecast;
 using MgmWeatherForecast.Models;
 
-namespace MgmService
+namespace SampleWCFService
 {
     public class WeatherService : IWeatherService
     {
-        public async Task<Forecast> GetWeatherForecastAsync(string placeNameHref)
+        public async Task<Forecast> GetWeatherForecastAsync(string placeName)
         {
-            return await WeatherRequest.GetForecastAsync(placeNameHref);
+            return await WeatherForecast.GetForecastAsync(new City(placeName));
         }
 
-        public async Task<Places> GetPlacesAsync(string placeNameHref)
+        public async Task<Places> GetPlacesAsync(string cityName)
         {
-            return await WeatherRequest.GetPlacesAsync(placeNameHref);
+            return await WeatherForecast.GetPlacesAsync(new City(cityName));
         }
     }
 }

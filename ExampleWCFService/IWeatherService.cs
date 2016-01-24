@@ -4,18 +4,18 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Threading.Tasks;
 
-namespace MgmService
+namespace SampleWCFService
 {
     [ServiceContract]
     public interface IWeatherService
     {
         [OperationContract]
         [WebGet(UriTemplate = "/forecast/{placeName}")]
-        Task<Forecast> GetWeatherForecastAsync(string placeName = "");
+        Task<Forecast> GetWeatherForecastAsync(string placeName);
 
         
         [OperationContract]
-        [WebGet(UriTemplate = "/placesList/{placeName}")]
-        Task<Places> GetPlacesAsync(string placeName = "");
+        [WebGet(UriTemplate = "/placesList/{cityName}")]
+        Task<Places> GetPlacesAsync(string cityName);
     }
 }
